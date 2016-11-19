@@ -2,7 +2,15 @@
           (lambda ()
             (linum-relative-toggle)))
 
-;;(global-linum-mode)
+
+(dolist (mode-hook '(text-mode-hook
+                      org-mode-hook
+                      prog-mode-hook
+                      ruby-mode-hook))
+   (add-hook mode-hook
+             (lambda ()
+               (spacemacs/toggle-auto-completion-on)
+               (linum-on))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -23,5 +31,10 @@
 (define-key input-decode-map "\e\eOB" [(meta down)])
 (global-set-key [(meta up)] 'scroll-down-command)
 (global-set-key [(meta down)] 'scroll-up-command)
+(global-set-key [up] 'linum-previous)
+(global-set-key [down] 'linum-forward)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(global-set-key "\C-x\C-k" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
