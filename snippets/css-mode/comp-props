@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: compatibility props
+# key: -
+# --
+
+$1: $2;
+-webkit-$1: $2;
+-moz-$1: $2;

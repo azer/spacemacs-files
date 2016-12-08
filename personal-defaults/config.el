@@ -2,7 +2,6 @@
           (lambda ()
             (linum-relative-toggle)))
 
-
 (dolist (mode-hook '(text-mode-hook
                       org-mode-hook
                       prog-mode-hook
@@ -19,12 +18,13 @@
 (setq auto-save-default nil)
 (setq temporary-file-directory "/tmp/")
 (setq create-lockfiles nil)
-
+(setq tab-always-indent t)
 (setq auto-save-file-name-transforms
 	`((".*" ,temporary-file-directory t)))
 
 (setq confirm-kill-emacs nil)
 
+(global-set-key (kbd "M-r") 'replace-regexp)
 (global-set-key [left] 'undo)
 (global-set-key [right] 'redo)
 (define-key input-decode-map "\e\eOA" [(meta up)])
@@ -38,3 +38,5 @@
 
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
+
+(setq css-indent-offset 2)

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: choo-view
+# key: view
+# --
+const $1 = (state, prev, send) => html\`
+  <div class="${1:$(s-dashed-words yas-text)}">
+    $0
+  </div>
+\`
