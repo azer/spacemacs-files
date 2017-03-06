@@ -43,3 +43,10 @@
 (setq css-indent-offset 2)
 
 (global-set-key (kbd "M-n") 'notebook)
+(global-set-key (kbd "M-g s") 'magit-status)
+(global-set-key (kbd "M-g l") 'magit-log)
+(global-set-key (kbd "M-g f") 'magit-pull-current)
+(global-set-key (kbd "M-g p") 'magit-push-quickly)
+(global-set-key (kbd "M-g r") 'helm-grep-do-git-grep)
+
+(setq web-mode-markup-indent-offset 2)
