@@ -7,6 +7,11 @@
       (goto-char (point-max))
       (delete-blank-lines))))
 
+(defun notebook ()
+  (interactive)
+  (ido-find-file-in-dir "~/code/notebook")
+  )
+
 (defun rename-this-buffer-and-file ()
   "Renames current buffer and file it is visiting."
   (interactive)

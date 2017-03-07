@@ -23,6 +23,7 @@
 	`((".*" ,temporary-file-directory t)))
 
 (setq confirm-kill-emacs nil)
+(set-default 'truncate-lines t)
 
 (global-set-key (kbd "M-r") 'replace-regexp)
 (global-set-key [left] 'undo)
@@ -40,3 +41,5 @@
 (global-set-key "\C-c\C-k" 'kill-region)
 
 (setq css-indent-offset 2)
+
+(global-set-key (kbd "M-n") 'notebook)

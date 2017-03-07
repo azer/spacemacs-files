@@ -1,0 +1,22 @@
+(defun gtd ()
+  (interactive)
+  (find-file "~/code/notebook/gtd.org")
+  )
+
+(defun org-set-task-as-started ()
+  (interactive)
+  (org-todo "STARTED")
+  (org-clock-in)
+  )
+
+(defun org-set-task-as-paused ()
+  (interactive)
+  (org-todo "PAUSED")
+  (org-clock-out)
+  )
+
+(defun org-set-task-as-done ()
+  (interactive)
+  (org-todo "DONE")
+  (org-clock-out)
+  )
