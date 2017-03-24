@@ -43,6 +43,7 @@
 (setq css-indent-offset 2)
 
 (global-set-key (kbd "M-n") 'notebook)
+
 (global-set-key (kbd "M-g s") 'magit-status)
 (global-set-key (kbd "M-g l") 'magit-log)
 (global-set-key (kbd "M-g f") 'magit-pull-current)
