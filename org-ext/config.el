@@ -1,6 +1,6 @@
-(global-set-key (kbd "C-c s") 'org-set-task-as-started)
-(global-set-key (kbd "C-c p") 'org-set-task-as-paused)
-(global-set-key (kbd "C-c d") 'org-set-task-as-done)
+(global-set-key (kbd "M-p s") 'org-set-task-as-started)
+(global-set-key (kbd "M-p p") 'org-set-task-as-paused)
+(global-set-key (kbd "M-p d") 'org-set-task-as-done)
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)"))))

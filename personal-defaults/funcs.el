@@ -28,3 +28,11 @@
                (set-visited-file-name new-name)
                (set-buffer-modified-p nil)
                (message "File '%s' successfully renamed to '%s'" name (file-name-nondirectory new-name))))))))
+
+(defun linum-forward (n)
+  (interactive "n Jump to forward line: ")
+  (forward-line n))
+
+(defun linum-previous (n)
+  (interactive "n Jump to previous line: ")
+  (previous-line n))

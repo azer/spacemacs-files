@@ -42,7 +42,7 @@
 
 (setq css-indent-offset 2)
 
-(global-set-key (kbd "M-n") 'notebook)
+(global-set-key (kbd "M-[") 'notebook)
 
 (global-set-key (kbd "M-g s") 'magit-status)
 (global-set-key (kbd "M-g l") 'magit-log)
@@ -51,3 +51,7 @@
 (global-set-key (kbd "M-g r") 'helm-grep-do-git-grep)
 
 (setq web-mode-markup-indent-offset 2)
+(customize-set-variable 'helm-git-grep-base-directory 'root)
+(customize-set-variable 'helm-git-grep-command "git --no-pager grep -n%cH --color=always --exclude-standard --no-index --full-name -e %p")
+
+(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
