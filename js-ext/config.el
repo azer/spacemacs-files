@@ -20,3 +20,8 @@
                            (local-set-key (kbd "M-n s") 'npm-search)
                            (local-set-key (kbd "M-n v") 'npm-version)
                            ))
+
+(add-hook 'rjsx-mode-hook (lambda ()
+                           (define-key rjsx-mode-map "<" nil)
+                           (define-key rjsx-mode-map (kbd "C-d") nil)
+                           ))
