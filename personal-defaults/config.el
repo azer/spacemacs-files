@@ -1,15 +1,44 @@
 (add-hook 'after-init-hook
           (lambda ()
-            (linum-relative-toggle)))
+            (linum-relative-global-mode)
+            (spaceline-toggle-major-mode-off)
+(spaceline-toggle-minor-modes-off)
+(spaceline-toggle-workspace-number-off)
+(spaceline-toggle-buffer-id-on)
+(spaceline-toggle-window-number-off)
+(spaceline-toggle-buffer-position-off)
+(spaceline-toggle-line-off)
+(spaceline-toggle-buffer-size-off)
+(spaceline-toggle-version-control-off)
+(spaceline-toggle-selection-info-off)
+(spaceline-toggle-hud-off)
+(spaceline-toggle-point-position-off)
+(spaceline-toggle-buffer-modified-off)
+(spaceline-toggle-anzu-off)
+(spaceline-toggle-evil-state-off)
+(spaceline-toggle-buffer-encoding-off)
+(spaceline-toggle-buffer-encoding-abbrev-off)
+(spaceline-toggle-helm-buffer-id-off)
+(spaceline-toggle-helm-number-off)
+(spaceline-toggle-helm-help-off)
+(spaceline-toggle-helm-prefix-argument-off)
+(spaceline-toggle-line-column-off)
+(set-face-background 'powerline-inactive1 "#1b1d1e")
+(setq spaceline-face-func 'my-spaceline-face)
+(set-face-attribute 'mode-line nil :box nil)
+            ))
 
 (dolist (mode-hook '(text-mode-hook
                       org-mode-hook
                       prog-mode-hook
+                      go-mode-hook
+                      js2-mode-hook
                       ruby-mode-hook))
    (add-hook mode-hook
              (lambda ()
                (spacemacs/toggle-auto-completion-on)
-               (linum-on))))
+               (spacemacs/toggle-smartparens-globally-off)
+               )))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -46,12 +75,25 @@
 
 (global-set-key (kbd "M-g s") 'magit-status)
 (global-set-key (kbd "M-g l") 'magit-log)
-(global-set-key (kbd "M-g f") 'magit-pull-current)
-(global-set-key (kbd "M-g p") 'magit-push-quickly)
-(global-set-key (kbd "M-g r") 'helm-grep-do-git-grep)
+(global-set-key (kbd "M-g f") 'magit-pull-from-upstream)
+(global-set-key (kbd "M-g p") 'magit-push-current-to-upstream)
 
 (setq web-mode-markup-indent-offset 2)
 (customize-set-variable 'helm-git-grep-base-directory 'root)
 (customize-set-variable 'helm-git-grep-command "git --no-pager grep -n%cH --color=always --exclude-standard --no-index --full-name -e %p")
+(customize-set-variable 'projectile-use-git-grep t)
+
+(defun git-grep (not-all)
+  (interactive "P")
+  (helm-grep-git-1 default-directory (null not-all)))
+
+(global-set-key (kbd "M-g r") 'git-grep)
+(global-set-key (kbd "C-c g") 'helm-grep-do-git-grep)
+(setq helm-grep-file-path-style 'relative)
 
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
+(set-fringe-mode 10)
+
+
+(defun my-spaceline-face (face active)
+    'powerline-inactive1)
