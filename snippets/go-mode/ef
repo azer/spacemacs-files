@@ -1,0 +1,1 @@
+$1 $2 \`envconfig:"${1:$(s-upper-snake yas-text)}" required:"true"\`

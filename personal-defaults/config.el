@@ -26,7 +26,9 @@
 (set-face-background 'powerline-inactive1 "#1b1d1e")
 (setq spaceline-face-func 'my-spaceline-face)
 (set-face-attribute 'mode-line nil :box nil)
-            ))
+))
+
+(set-frame-parameter nil 'internal-border-width 10)
 
 (dolist (mode-hook '(text-mode-hook
                       org-mode-hook
@@ -39,6 +41,22 @@
                (spacemacs/toggle-auto-completion-on)
                (spacemacs/toggle-smartparens-globally-off)
                )))
+
+(setq prettier-js-args '(
+                         "--no-semi" ""
+                         ))
+
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            (prettier-js-mode)
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)
+            ))
+
+(setq typescript-indent-level 2)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
