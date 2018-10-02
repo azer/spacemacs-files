@@ -5,6 +5,8 @@
   (linum-mode 0)
   (writeroom-mode 1)
   (blink-cursor-mode)
+  (visual-line-mode 1)
   (setq truncate-lines nil)
   (setq-default line-spacing 5)
+  (setq global-hl-line-mode nil)
   )
